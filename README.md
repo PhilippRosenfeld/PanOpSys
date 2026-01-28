@@ -1,12 +1,12 @@
 # PanOpSys
 # Home Hub
 
-Ein modularer Home-Automation-Hub auf Basis eines Raspberry Pi.
+A modular home automation hub based on a Raspberry Pi.
 
 ## Features (geplant)
-- Sensoren (Temperatur, Feuchte, Helligkeit)
-- Web-Interface
-- Erweiterbar mit Aktoren (Relais, LEDs)
+- Sensors (temperature, humidity, brightness)
+- Web interface
+- Extensible with actuators (relays, LEDs)
 - REST-API
 
 ## Tech Stack
