@@ -3,7 +3,7 @@
 
 A modular home automation hub based on a Raspberry Pi.
 
-## Features (geplant)
+## Features (planed)
 - Sensors (temperature, humidity, brightness)
 - Web interface
 - Extensible with actuators (relays, LEDs)
