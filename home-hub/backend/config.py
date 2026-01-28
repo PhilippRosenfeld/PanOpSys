@@ -1,0 +1,1 @@
+USE_MOCK_SENSORS = True
