@@ -13,4 +13,8 @@ export class AtmoService {
   getLatest(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
+
+  getAll(limit: number = 50): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/all?limit=${limit}`);
+  }
 }

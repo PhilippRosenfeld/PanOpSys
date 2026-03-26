@@ -11,14 +11,6 @@ import java.util.List;
 public interface AtmoDao {
 
   /**
-   * Gets the latest Atmo reading from the DB
-   *
-   * @return the {@link AtmoDTO} representing the latest entry
-   */
-  AtmoDTO getLastAtmo();
-
-
-  /**
    * Adds the Atmo reading to the DB
    *
    * @return the {@link AtmoDTO} representing the saved entry
@@ -26,10 +18,10 @@ public interface AtmoDao {
   AtmoDTO saveAtmo(AtmoCreateDTO atmoDTO);
 
   /**
-   * Returns a list of all atmo readings in the DB
-   *
+   * Returns a list of all atmo readings in the DB up to a maximum of {@code limit}
+   * @param limit maximum number of entries to return
    * @return a list with {@link AtmoDTO} entries
    */
-  List<AtmoDTO> getAllAtmos();
+  List<AtmoDTO> getAtmos(int limit);
 }
 

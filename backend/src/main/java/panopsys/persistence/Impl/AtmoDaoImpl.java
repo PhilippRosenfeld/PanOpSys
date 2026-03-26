@@ -20,26 +20,14 @@ public class AtmoDaoImpl implements AtmoDao {
 
   private final JdbcClient jdbcClient;
 
-  private static final String SQL_SELECTLATEST = "SELECT temp, pressure, humidity, timestamp FROM atmo ORDER BY timestamp DESC LIMIT 1";
   private static final String SQL_INSERT = "INSERT INTO atmo (temp, pressure, humidity, timestamp) VALUES (:temp, :pressure, :humidity, :timestamp)";
-  private static final String SQL_SELECTALL = "SELECT temp, pressure, humidity, timestamp FROM atmo ORDER BY timestamp";
+  private static final String SQL_SELECTALL = "SELECT temp, pressure, humidity, timestamp FROM atmo ORDER BY timestamp DESC LIMIT :limit";
 
 
   public AtmoDaoImpl(JdbcClient jdbcClient) {
     this.jdbcClient = jdbcClient;
   }
 
-
-  @Override
-  public AtmoDTO getLastAtmo() {
-    LOG.trace("getLastAtmo");
-
-    return jdbcClient
-        .sql(SQL_SELECTLATEST)
-        .query(AtmoDTO.class)
-        .optional()
-        .orElse(null);
-  }
 
   @Override
   public AtmoDTO saveAtmo(AtmoCreateDTO atmoDTO) {
@@ -63,13 +51,14 @@ public class AtmoDaoImpl implements AtmoDao {
   }
 
   @Override
-  public List<AtmoDTO> getAllAtmos() {
-    LOG.trace("getAllAtmos");
+  public List<AtmoDTO> getAtmos(int limit) {
+    LOG.trace("getAllAtmos({})", limit);
 
     return jdbcClient
         .sql(SQL_SELECTALL)
+        .param("limit", limit)
         .query(AtmoDTO.class)
-        .stream().toList();
+        .list();
   }
 
 

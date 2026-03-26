@@ -9,7 +9,7 @@ import panopsys.service.AtmoService;
 
 import java.util.Random;
 
-@Component
+
 public class MockSensor {
   private final AtmoService atmoService;
   private final Random random = new Random();

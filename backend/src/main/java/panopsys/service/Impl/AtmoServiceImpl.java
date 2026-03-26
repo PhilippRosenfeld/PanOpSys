@@ -25,12 +25,6 @@ public class AtmoServiceImpl implements AtmoService {
     this.validator = validator;
   }
 
-  public AtmoDTO getLastAtmo() {
-    LOG.info("getLastAtmo");
-
-    return dao.getLastAtmo();
-  }
-
   @Override
   public AtmoDTO saveAtmo(AtmoCreateDTO atmoDTO) throws ValidationException {
     LOG.info("saveAtmo({})", atmoDTO);
@@ -40,9 +34,9 @@ public class AtmoServiceImpl implements AtmoService {
   }
 
   @Override
-  public List<AtmoDTO> getAllAtmos() {
-    LOG.info("getAllAtmos");
+  public List<AtmoDTO> getAtmos(int limit) {
+    LOG.info("getAllAtmos({})", limit);
 
-    return dao.getAllAtmos();
+    return dao.getAtmos(limit);
   }
 }

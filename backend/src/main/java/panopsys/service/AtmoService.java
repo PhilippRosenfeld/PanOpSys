@@ -12,12 +12,6 @@ import java.util.List;
 public interface AtmoService {
 
   /**
-   * Gets the latest atmo reading.
-   * @return {@link AtmoDTO} representing latest reading
-   */
-  AtmoDTO getLastAtmo();
-
-  /**
    * Saves the atmo reading
    * @param atmoDTO reading that is to be saved
    * @return the saved reading
@@ -26,8 +20,9 @@ public interface AtmoService {
   AtmoDTO saveAtmo(AtmoCreateDTO atmoDTO) throws ValidationException;
 
   /**
-   * Gets all atmo readings.
+   * Gets all atmo readings up to limit
+   * @param limit maximum number of entries to return
    * @return a list of {@link AtmoDTO}
    */
-  List<AtmoDTO> getAllAtmos();
+  List<AtmoDTO> getAtmos(int limit);
 }

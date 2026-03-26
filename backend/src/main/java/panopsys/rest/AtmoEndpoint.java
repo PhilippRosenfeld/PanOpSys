@@ -29,7 +29,7 @@ public class AtmoEndpoint {
   public AtmoDTO getLastAtmo() {
     LOG.info("getLastAtmo");
 
-    return service.getLastAtmo();
+    return service.getAtmos(1).get(0);
 }
 
 @PostMapping
@@ -40,9 +40,9 @@ public AtmoDTO saveAtmo(@RequestBody AtmoCreateDTO atmoDTO) throws ValidationExc
 }
 
 @GetMapping("/all")
-  public List<AtmoDTO> getAllAtmos() {
-    LOG.info("getAllAtmos");
+  public List<AtmoDTO> getAllAtmos(@RequestParam(defaultValue = "50") int limit) {
+    LOG.info("getAllAtmos({})", limit);
 
-    return service.getAllAtmos();
+    return service.getAtmos(limit);
 }
 }
