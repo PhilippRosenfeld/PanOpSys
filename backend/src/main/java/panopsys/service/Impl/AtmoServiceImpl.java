@@ -2,6 +2,7 @@ package panopsys.service.Impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import panopsys.DTO.AtmoCreateDTO;
 import panopsys.exceptions.ValidationException;
 import panopsys.persistence.AtmoDao;
 import panopsys.DTO.AtmoDTO;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import panopsys.service.AtmoService;
 import panopsys.validator.AtmoValidator;
+
+import java.util.List;
 
 @Service
 public class AtmoServiceImpl implements AtmoService {
@@ -29,10 +32,17 @@ public class AtmoServiceImpl implements AtmoService {
   }
 
   @Override
-  public AtmoDTO saveAtmo(AtmoDTO atmoDTO) throws ValidationException {
+  public AtmoDTO saveAtmo(AtmoCreateDTO atmoDTO) throws ValidationException {
     LOG.info("saveAtmo({})", atmoDTO);
     validator.validateForPost(atmoDTO);
 
     return dao.saveAtmo(atmoDTO);
+  }
+
+  @Override
+  public List<AtmoDTO> getAllAtmos() {
+    LOG.info("getAllAtmos");
+
+    return dao.getAllAtmos();
   }
 }

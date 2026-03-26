@@ -1,6 +1,7 @@
 package panopsys.mapper;
 
 import org.springframework.stereotype.Component;
+import panopsys.DTO.AtmoCreateDTO;
 import panopsys.DTO.AtmoDTO;
 import panopsys.persistence.AtmoEntity;
 
@@ -19,6 +20,11 @@ public class AtmoMapper {
   }
 
   public AtmoEntity dtoToEntity(AtmoDTO dto) {
+    return new AtmoEntity(dto.temp(), dto.pressure(), dto.humidity(), dto.timestamp());
+  }
+
+  public AtmoEntity createDTOtoEntity(AtmoCreateDTO dto) {
     return new AtmoEntity(dto.temp(), dto.pressure(), dto.humidity(), LocalDateTime.now());
   }
+
 }

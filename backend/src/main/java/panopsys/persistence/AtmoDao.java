@@ -1,6 +1,9 @@
 package panopsys.persistence;
 
+import panopsys.DTO.AtmoCreateDTO;
 import panopsys.DTO.AtmoDTO;
+
+import java.util.List;
 
 /**
  * Interface to provide interactions with DB
@@ -20,6 +23,13 @@ public interface AtmoDao {
    *
    * @return the {@link AtmoDTO} representing the saved entry
    */
-  AtmoDTO saveAtmo(AtmoDTO atmoDTO);
+  AtmoDTO saveAtmo(AtmoCreateDTO atmoDTO);
+
+  /**
+   * Returns a list of all atmo readings in the DB
+   *
+   * @return a list with {@link AtmoDTO} entries
+   */
+  List<AtmoDTO> getAllAtmos();
 }
 

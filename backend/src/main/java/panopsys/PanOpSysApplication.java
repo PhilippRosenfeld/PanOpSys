@@ -10,4 +10,5 @@ public class PanOpSysApplication {
   public static void main(String[] args) {
     SpringApplication.run(PanOpSysApplication.class, args);
   }
+
 }
