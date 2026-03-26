@@ -1,1 +1,29 @@
-.idea
+# ===== MAVEN (Backend) =====
+backend/target/
+
+# ===== ANGULAR (Frontend) =====
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# ===== INTELLIJ =====
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# ===== BETRIEBSSYSTEM =====
+.DS_Store          # Mac
+Thumbs.db          # Windows
+desktop.ini        # Windows
+
+# ===== LOGS =====
+*.log
+logs/
+
+# ===== UMGEBUNGSVARIABLEN (wichtig! nie in Git!) =====
+.env
+.env.local
+.env.production
+*.env
+application-local.properties
